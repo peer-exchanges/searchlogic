@@ -67,6 +67,7 @@ module Searchlogic
         def boolean_condition?(name)
           column = columns_hash[name.to_s] || columns_hash[name.to_s.gsub(/^not_/, "")]
           column && column.type == :boolean
+          false #Just a quick HACK to disable boolean condition in order to fix this issue http://screencast.com/t/OGU5ZTc0N
         end
 
         def method_missing(name, *args, &block)
